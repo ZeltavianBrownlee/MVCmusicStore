@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MvcMusic.Models.GenreModel>
+
+@{
+    //Page title in browser tab
+    ViewBag.Title = "Store";
+}
+
+<h3>Browse Genres</h3>
+
+@*Select from the number of genres in store*@
+<p>Select from @Model.Count() genres:</p>
+
+@*Link text, which will display the Genre name, Controller action name (Browse),Route parameter values,
+specifying both the name (Genre) and the value (Genre name)*@
+
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>@Html.ActionLink(genre.Name, "Browse", new { genre = genre.Name })</li>
+    }
+</ul>

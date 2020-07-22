@@ -1,0 +1,19 @@
+﻿@model MvcMusic.Models.GenreModel
+
+@{
+    //Page title in browser tab
+    ViewBag.Title = "Browse";
+}
+
+@*Show header with genre name *@
+<h2>Browse Genre:  @Model.Name</h2>
+
+<ul>
+    @foreach (var album in Model.Albums)
+    {
+        <li>
+            @*Add a hyperlink for each album title to Browse page to take you to details page*@
+            @Html.ActionLink(album.Title, "Details", new { id = album.AlbumId })
+        </li>
+    }
+</ul>
